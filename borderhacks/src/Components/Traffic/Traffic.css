@@ -9,10 +9,18 @@
 .TrafficInfoTitle {
     font-family: 'Brush Script MT', cursive;
     font-size: 5vh;
+    border-color:black;
+    border: 10px;
 }
 
 .TrafficInfo {
-    background-color: lightgrey;
-    height:100vh;
+    height:98vh;
     width:30%;
+    background-color: transparent;
+    border:2px solid black;
+}
+
+.navBar {
+   position: absolute;
+   z-index: 10;
 }

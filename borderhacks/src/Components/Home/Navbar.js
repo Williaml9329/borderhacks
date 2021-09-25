@@ -4,7 +4,7 @@ import React from "react"
         return (
             <div className = "navDiv"> 
                 <nav className = "navBar"> 
-                    <button className = "navTitle"> <strong>Project Name</strong> </button>
+                    <button className = "navTitle"> <strong>TrafficDown</strong> </button>
                 </nav>
             </div>
         )

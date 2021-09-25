@@ -34,7 +34,7 @@ function Home() {
                             <Typical
                                 wrapper = "b"
                                 steps = {["Welcome.",
-                                    2000]}
+                                    20000]}
                             loop = {1}
                         />
                     </p>
