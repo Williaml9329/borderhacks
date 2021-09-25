@@ -22,7 +22,7 @@
     position: absolute;
     font-size:60px;
     font-family: 'Brush Script MT', cursive;
-    margin-top: 41vh;
+    margin-top: 36vh;
     color: white;
     margin-left: 85vh;
 }
@@ -63,7 +63,7 @@
 .IntroductionText {
     position:absolute;
     font-size: 10vh;
-    margin-top: 30vh;
+    margin-top: 25vh;
     margin-left: 80vh;
     color: white;
 }
