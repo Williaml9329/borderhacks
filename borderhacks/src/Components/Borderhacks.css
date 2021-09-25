@@ -1,0 +1,86 @@
+.navTitle {
+    background-color: whitesmoke;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    margin-left:5%;
+    height:50px;
+    width:15%;
+    font-size:30px;
+    margin-right: 55%;
+    font-family: 'Brush Script MT', cursive;
+}
+
+.startButton {
+    background-color:transparent;
+    border-color: black;
+    background-repeat:no-repeat;
+    border-radius:5px;
+    border: none;
+    cursor:pointer;
+    height:100px;
+    width:300px;
+    position: absolute;
+    font-size:60px;
+    font-family: 'Brush Script MT', cursive;
+    margin-top: 46vh;
+    margin-left: 85vh;
+}
+
+.navButtons {
+    background-color: whitesmoke;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    height:50px;
+    width:5%;
+    font-size:30px;
+    font-family: 'Brush Script MT', cursive;
+    color:black;
+}
+
+.navButtons:hover {
+    font-weight: bold;
+}
+
+.navDiv {
+    opacity:0.8;
+}
+
+.VideoBackground img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+
+.HomeDiv {
+    height: 100vh;
+    width:100%;
+}
+
+.IntroductionText {
+    position:absolute;
+    font-size: 10vh;
+    margin-top: 35vh;
+    margin-left: 80vh;
+}
+
+.AboutMeContainer {
+    background-color: lightgray;
+    margin:auto;
+    width:60%;
+    border: 5px solid blue;
+    padding:10px;
+}
+
+.AboutMeIcon {
+    background: lightblue;
+    width: 50%;
+    height: 100%;
+}
+
+.PersonalPicture {
+    border-radius: 100%;
+}
