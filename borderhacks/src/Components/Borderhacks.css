@@ -1,34 +1,34 @@
 .navTitle {
-    background-color: whitesmoke;
+    background-color: transparent;
     background-repeat:no-repeat;
     border: none;
     cursor:pointer;
-    margin-left:5%;
+    margin-left:3%;
     height:50px;
     width:15%;
-    font-size:30px;
+    font-size:50px;
     margin-right: 55%;
     font-family: 'Brush Script MT', cursive;
 }
 
 .startButton {
     background-color:transparent;
-    border-color: black;
+    border-color: white;
     background-repeat:no-repeat;
     border-radius:5px;
-    border: none;
     cursor:pointer;
     height:100px;
     width:300px;
     position: absolute;
     font-size:60px;
     font-family: 'Brush Script MT', cursive;
-    margin-top: 46vh;
+    margin-top: 41vh;
+    color: white;
     margin-left: 85vh;
 }
 
 .navButtons {
-    background-color: whitesmoke;
+    background-color: transparent;
     background-repeat:no-repeat;
     border: none;
     cursor:pointer;
@@ -63,8 +63,9 @@
 .IntroductionText {
     position:absolute;
     font-size: 10vh;
-    margin-top: 35vh;
+    margin-top: 30vh;
     margin-left: 80vh;
+    color: white;
 }
 
 .AboutMeContainer {
