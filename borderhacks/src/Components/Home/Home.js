@@ -3,8 +3,12 @@ import Typical from "react-typical"
 import Navbar from "./Navbar"
 import BackgroundVideo from "./Video/Video.mp4"
 import "./Borderhacks.css"
+import { useHistory } from "react-router-dom";
 
 function Home() {
+
+    let history = useHistory()
+    
     return (
         <div>
             <div clasName = "HomeDiv">
@@ -34,7 +38,7 @@ function Home() {
                             loop = {1}
                         />
                     </p>
-                    <button className = "startButton"> Get Started. </button>
+                    <button className = "startButton" onClick = {() => {history.push("./Traffic")}}> Get Started. </button>
                 </div>
             </div>
         </div>
