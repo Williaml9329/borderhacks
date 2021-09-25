@@ -17,14 +17,17 @@
     background-repeat:no-repeat;
     border-radius:5px;
     cursor:pointer;
-    height:100px;
-    width:300px;
-    position: absolute;
     font-size:60px;
     font-family: 'Brush Script MT', cursive;
-    margin-top: 38vh;
     color: white;
-    margin-left: 85vh;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 300px;
+    height: 100px;
 }
 
 .navButtons {
@@ -62,26 +65,16 @@
 
 .IntroductionText {
     position:absolute;
-    font-size: 10vh;
-    margin-top: 26vh;
-    margin-left: 80vh;
+    font-size: 75px;
     color: white;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 325px;
+    height: 300px;
 }
 
-.AboutMeContainer {
-    background-color: lightgray;
-    margin:auto;
-    width:60%;
-    border: 5px solid blue;
-    padding:10px;
-}
 
-.AboutMeIcon {
-    background: lightblue;
-    width: 50%;
-    height: 100%;
-}
-
-.PersonalPicture {
-    border-radius: 100%;
-}

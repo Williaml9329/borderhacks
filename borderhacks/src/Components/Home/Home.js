@@ -30,18 +30,18 @@ function Home() {
                     >
                         <source src = {BackgroundVideo} type = "video/mp4" />
                     </video>
-                    <p className = "IntroductionText">
+                        <p className = "IntroductionText">
                             <Typical
                                 wrapper = "b"
                                 steps = {["Welcome.",
                                     20000]}
                             loop = {1}
                         />
-                    </p>
-                    <button className = "startButton" onClick = {() => {history.push("./Traffic")}}> Get Started. </button>
+                        </p>
+                        <button className = "startButton" onClick = {() => {history.push("./Traffic")}}> Get Started. </button>
+                    </div>
                 </div>
             </div>
-        </div>
     )
 }
 
