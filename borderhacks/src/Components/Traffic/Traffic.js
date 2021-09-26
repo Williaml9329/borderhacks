@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { GoogleMap, withScriptjs, withGoogleMap } from "react-google-maps";
+import React, { useState, useEffect, Component } from "react";
+import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
 import "./Traffic.css"
 import { useHistory } from "react-router-dom";
 
@@ -7,11 +7,54 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 function Map() {
     
+    const [selectedIntersection, setSelectedIntersection] = useState(null);
+
+    const locations = [
+        {
+            name: "Location 1",
+            location: {
+                lat: 42.282771078837,
+                lng: -83.05469584217374
+            }
+        }, 
+        {
+            name: "Location 2",
+            location: {
+                lat: 42.28594873393785,
+                lng: -83.05640801855508
+            }
+        }, {
+            name: "Location 3",
+            location: {
+                lat: 42.28778731052449,
+                lng: -83.0574700128186
+            }
+        }
+    ]
+
     return (
-        <GoogleMap 
-            defaultZoom = {10} 
+        <GoogleMap
+            defaultZoom = {14} 
             defaultCenter = {{lat: 42.317432, lng: -83.026772}} 
-        />
+        >
+            {locations.map(item => {
+                return (
+                <Marker key = {item.name} position = {item.location} onClick = {() => {
+                    setSelectedIntersection(item);
+                }} />
+            )
+            })}
+            {selectedIntersection && (
+                <InfoWindow 
+                    position = {selectedIntersection.location}
+                    onCloseClick = {() => {
+                        setSelectedIntersection(null);
+                    }}
+                >
+                    <div>Intersection Details</div>
+                </InfoWindow>
+            )}
+        </GoogleMap>
     )
 
 }
@@ -19,8 +62,6 @@ function Map() {
 const WrappedMap = withScriptjs(withGoogleMap(Map))
 
 export default function Traffic() {
-
-    let history = useHistory()
 
     return (
         <div className = "TrafficContainer">
