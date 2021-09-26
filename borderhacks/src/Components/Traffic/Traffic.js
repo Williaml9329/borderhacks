@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { GoogleMap, withScriptjs, withGoogleMap, Polyline } from "react-google-maps";
+import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow, Polyline } from "react-google-maps";
 import "./Traffic.css"
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
@@ -52,7 +52,31 @@ const getNewPaths = () => {
 }
 
 function Map() {
-    let [newPaths, setNewPaths] = useState([]);
+    const [newPaths, setNewPaths] = useState([]);
+    const [selectedIntersection, setSelectedIntersection] = useState(null);
+
+    const locations = [
+        {
+            name: "Location 1",
+            location: {
+                lat: 42.282771078837,
+                lng: -83.05469584217374
+            }
+        },
+        {
+            name: "Location 2",
+            location: {
+                lat: 42.28594873393785,
+                lng: -83.05640801855508
+            }
+        }, {
+            name: "Location 3",
+            location: {
+                lat: 42.28778731052449,
+                lng: -83.0574700128186
+            }
+        }
+    ]
 
     React.useEffect(() => {
         for (let j = 0; j < 3; j++) {
@@ -68,6 +92,8 @@ function Map() {
             }
         }
     }, []);
+
+
 
     const pathCoordinates =
         [{
@@ -155,13 +181,29 @@ function Map() {
                         {lat: 42.2819635323034, lng: -83.05708251570393}]]
             }];
 
-    if (newPaths.length !== 24) {
         return (
             <GoogleMap
                 defaultZoom={15}
                 defaultCenter={{lat: 42.28573716490464, lng: -83.05711994497918}}>
+                {locations.map(item => {
+                    return (
+                        <Marker key = {item.name} position = {item.location} onClick = {() => {
+                            setSelectedIntersection(item);
+                        }} />
+                    )
+                })}
+                {selectedIntersection && (
+                    <InfoWindow
+                        position = {selectedIntersection.location}
+                        onCloseClick = {() => {
+                            setSelectedIntersection(null);
+                        }}
+                    >
+                        <div>Intersection Details</div>
+                    </InfoWindow>
+                )}
                 {
-                    newPaths.map((segment) => {
+                    (newPaths.length !== 24) && (newPaths.map((segment) => {
                         return <Polyline
                             path={ segment.path }
                             geodesic={true}
@@ -170,14 +212,11 @@ function Map() {
                                 strokeOpacity: 0.75,
                                 strokeWeight: 2
                             }}/>
-                    })
+                    }))
                 }
             </GoogleMap>
         );
-    } else {
-        return null;
     }
-}
 
 const WrappedMap = withScriptjs(withGoogleMap(Map))
 
