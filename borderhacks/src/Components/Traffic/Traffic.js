@@ -1,9 +1,6 @@
 import React, { useState, useEffect, Component } from "react";
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from "react-google-maps";
 import "./Traffic.css"
-import { useHistory } from "react-router-dom";
-
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 function Map() {
     
