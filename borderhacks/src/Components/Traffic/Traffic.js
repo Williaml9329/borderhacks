@@ -1,67 +1,41 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
+import React, { useState, useEffect } from "react";
+import { GoogleMap, withScriptjs, withGoogleMap } from "react-google-maps";
 import "./Traffic.css"
-import { Redirect } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-class SimpleMap extends Component {
+function Map() {
+    
+    return (
+        <GoogleMap 
+            defaultZoom = {10} 
+            defaultCenter = {{lat: 42.317432, lng: -83.026772}} 
+        />
+    )
 
-    state = {
-        redirect: false
-    }
-
-    setRedirect = () => {
-        this.setState({
-            redirect: true
-        })
-    }
-
-    renderRedirect = () => {
-        if (this.state.redirect) {
-            return <Redirect to="/HomePage" />
-        }
-    }
-
-    static defaultProps = {
-        center: {
-            lat: 42.317432,
-            lng: -83.026772
-        },
-        zoom: 11
-    };
-
-    render() {
-      
-        return (
-            // Important! Always set the container height explicitly
-            <div className = "TrafficContainer">
-                <div>
-                    <nav className = "navBar"> 
-                        {this.renderRedirect()}
-                        <button className = "navTitle" onClick = {this.setRedirect}> <strong>TrafficDown</strong> </button>
-                    </nav>
-                </div>
-                <div className = "map" style={{ height: '99vh', width: "70%" }}>
-                    <GoogleMapReact
-                        bootstrapURLKeys={{ key: "AIzaSyC2-HdSCQjV2HdgkF6iQdvdcBYm7bBF39w" }}
-                        defaultCenter={this.props.center}
-                        defaultZoom={this.props.zoom}
-                    >
-                    <AnyReactComponent
-                        lat={42.317432}
-                        lng={-83.026772}
-                        text="Windsor"
-                    />
-                    </GoogleMapReact>
-                </div>
-                <div className = "TrafficInfo">
-                    <center><h2 className = "TrafficInfoTitle"> Traffic Analysis </h2></center>
-                    <p> Data goes here. </p>
-                </div>
-            </div>
-        );
-    }
 }
 
-export default SimpleMap;
+const WrappedMap = withScriptjs(withGoogleMap(Map))
+
+export default function Traffic() {
+
+    let history = useHistory()
+
+    return (
+        <div className = "TrafficContainer">
+            <div style = {{ height: '99vh', width: "70%" }}>
+            <WrappedMap 
+                googleMapURL={"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyC2-HdSCQjV2HdgkF6iQdvdcBYm7bBF39w"}
+                loadingElement = {<div style = {{height: "100%"}}/>}
+                containerElement = {<div style = {{height: "100%"}}/>}
+                mapElement = {<div style = {{height: "100%"}}/>}
+            />
+            </div>
+            <div className = "TrafficInfo">
+                <center><h2 className = "TrafficInfoTitle"> Traffic Analysis </h2></center>
+                <p> Data goes here. </p>
+            </div>
+        </div>
+    )
+}

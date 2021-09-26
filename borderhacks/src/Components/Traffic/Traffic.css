@@ -19,8 +19,3 @@
     background-color: transparent;
     border:2px solid black;
 }
-
-.navBar {
-   position: absolute;
-   z-index: 10;
-}
